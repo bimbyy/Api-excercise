@@ -3,44 +3,43 @@ function searchGiphy(event) {
     event.preventDefault();
     
     // Get the value of the input element
-    const searchTerm = input.value;
+    const searchTerm = $('#search-term').val();
     
-    // Make a request to GIPHY using axios
-    axios.get('http://api.giphy.com/v1/gifs/search', {
-      params: {
+    // Make a request to GIPHY using ajax
+    $.ajax({
+    url:'http://api.giphy.com/v1/gifs/search', 
+      data: {
         q: searchTerm,
         api_key: '9gJE3YnhPbfuxrGlnJCmtElYnAUeXMbh',
         limit: 10
-      }
-    })
-    .then(response => {
+      },
+    success: function(response) {
       // Get a random GIF from the response data
-      const gif = response.data.data[Math.floor(Math.random() * response.data.data.length)];
+      const gif = response.data[Math.floor(Math.random() * response.data.length)];
     
       // Create a new image element with the GIF URL
-      const img = document.createElement('img');
-      img.src = gif.images.original.url;
+      const img = $('<img>').addClass('giphy-image').attr('src', gif.images.original.url);
     
       // Append the image element to the body of the page
-      document.body.appendChild(img);
-    })
-    .catch(error => {
+      $('body').append(img);
+      //clear search field
+      $('#search-term').val('');
+    },
+    error: function (error){
       console.error(error);
-    });
+    }
+  });
   }
   function removeGifs() {
     // Remove all GIFs from the page
-    const gifs = document.querySelectorAll('img');
-    gifs.forEach(gif => gif.remove());
+    $('img').remove();
   }
   
   // Get references to the form and input elements
-  const form = document.querySelector('form');
-  const input = document.querySelector('#search-term');
+  
   
   // Add an event listener to the form for the submit event
-  form.addEventListener('submit', searchGiphy);
+  $('form').submit(searchGiphy);
   
   // Get a reference to the remove button and add a click event listener
-  const removeButton = document.querySelector('#remove-gifs');
-  removeButton.addEventListener('click', removeGifs);
+  $('#remove-gifs').click(removeGifs);
