@@ -1,61 +1,71 @@
 body {
-background-image: linear-gradient(to left top,rgb(42, 202, 241),rgb(248, 111, 87));
-background-attachment: fixed;
+  background-image: linear-gradient(to left top,rgb(42, 202, 241),rgb(248, 111, 87));
+  background-attachment: fixed;
 }
+
 form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin: 50px auto;
-    padding: 20px;
-    max-width: 600px;
-    background-image: linear-gradient(rebeccapurple, teal);
-    box-shadow: 0 0 20px rgba(0,0,0,0.2);
+  display: flexbox;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 50px auto ;
+  padding: 20px;
+  max-width: 600px;
+  background-image: linear-gradient(rebeccapurple, teal);
+  box-shadow: 0 0 20px rgba(0,0,0,0.2);
   }
   
-  label {
-    margin-right: 10px;
+label {
+  margin-right: 10px;
   }
   label[for="search-term"]{
-    display: block;
-    font-size: 20px;
-    color: #fd0303;
-    margin-bottom: 10px;
+  display: block;
+  font-size: 20px;
+  color: #fd0303;
+  margin-bottom: 10px;
   }
-  input#search-term{
-    padding: 10px;
-    font-size: 16px;
-    border-radius: 5px;
-    border: none;
-    background-color: #f2f2f2;
-    width: 100%;
-    max-width: 400px;
+
+input#search-term{
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: none;
+  background-color: #f2f2f2;
+  width: 100%;
+  max-width: 400px;
   }
-  .giphy-image{
-    width: 500px;
-    height: 500px;
-    box-shadow: 0 0 20px #b8b7b7;
+
+.giphy-image{
+  max-width: 100%;
+  height: auto;
+  max-height:500px;
+  object-fit: cover;
+  padding: 10px;
+  box-shadow: 0 0 20px #b8b7b7;
   }
-  input#search-term::placeholder{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
+
+input#search-term::placeholder{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
   }
-  button[type="submit"], button#remove-gifs {
-    padding: 10px 20px;
-    font-size: 16px;
-    border-radius: 5px;
-    border: none;
-    background-color: #4CAF50;
-    color: #fff;
-    cursor: pointer;
-    transition: all 0.3s ease;
+
+button[type="submit"], button#remove-gifs {
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 10px;
+  border: none;
+  background-color: #4CAF50;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  
   }
   
-  button[type="submit"]:hover, button#remove-gifs:hover {
-    background-color: #3e8e41;
-    padding: 2px 5px;
+button[type="submit"]:hover, button#remove-gifs:hover {
+  background-color: #3e8e41;
+  padding: 12px 22px;
+
   }
   
